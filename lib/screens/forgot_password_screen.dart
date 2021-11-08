@@ -2,19 +2,18 @@
 import 'dart:ui';
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
-import 'package:sporty/helper/helper.dart';
 import 'package:sporty/services/navigation_service.dart';
-import 'package:sporty/screens/forgot_password_screen.dart';
+import 'package:sporty/helper/helper.dart';
 
-class LoginScreen extends StatefulWidget {
-  static String id = "login_screen";
-  const LoginScreen({Key? key}) : super(key: key);
+class ForgotPasswordScreen extends StatefulWidget {
+  static String id = "forgot_password_screen";
+  const ForgotPasswordScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   List<String>? formValue = [];
   List<String>? options = [
@@ -76,14 +75,23 @@ class _LoginScreenState extends State<LoginScreen> {
                           // SizedBox(height: size.height * 0.08),
                           Center(
                             child: Text(
-                              "Login",
+                              "Reset Password",
                               style: TextStyle(
-                                fontSize: 30,
+                                fontSize: 25,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
-                          SizedBox(height: size.height * 0.05),
+
+                          YMargin(15),
+                          Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                                '  A verification code would be sent to your email address.',
+                                style: TextStyle(
+                                    fontSize: 11, fontStyle: FontStyle.italic)),
+                          ),
+                          SizedBox(height: size.height * 0.01),
                           TextField(
                             decoration: InputDecoration(
                               hintText: "Email",
@@ -93,28 +101,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-                          SizedBox(height: size.height * 0.03),
-                          TextField(
-                            obscureText: true,
-                            decoration: InputDecoration(
-                              hintText: "Password",
-                              isDense: true,
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
-                              ),
-                            ),
-                          ),
 
-                          Align(
-                            alignment: Alignment.centerRight,
-                            child: TextButton(
-                                onPressed: () => NavigationService.navigateTo(
-                                    ForgotPasswordScreen.id),
-                                child: Text(
-                                  'Forgot password?',
-                                  style: TextStyle(color: Colors.red.shade800),
-                                )),
-                          ),
+                          YMargin(30),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -129,7 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       padding: EdgeInsets.symmetric(
                                           horizontal: 40, vertical: 15)),
                                   child: Text(
-                                    "Login",
+                                    "Reset Password",
                                     style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,

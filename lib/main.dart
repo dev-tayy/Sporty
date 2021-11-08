@@ -5,6 +5,7 @@ import 'utils/injection.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
+import 'screens/forgot_password_screen.dart';
 import 'helper/helper.dart';
 
 void main() {
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           // ProfileScreen.id: (context) => ProfileScreen(),
           // EditProfileScreen.id: (context) => EditProfileScreen(),
           // ChangePasswordScreen.id: (context) => ChangePasswordScreen(),
-          // ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
+         ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
           // ResetPasswordScreen.id: (context) => ResetPasswordScreen(),
           // ChangeEmailScreen.id: (context) => ChangeEmailScreen(),
         });
