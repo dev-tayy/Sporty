@@ -1,6 +1,5 @@
 //@=dart2.7
 import 'dart:ui';
-import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:sporty/services/navigation_service.dart';
 import 'package:sporty/helper/helper.dart';

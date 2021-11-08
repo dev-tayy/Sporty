@@ -312,7 +312,7 @@ Future<void> showSuccessDialog(
                             message!,
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                                color: Colors.blue,
+                                color: Colors.indigo,
                                 fontSize: 13,
                                 fontWeight: FontWeight.w500),
                           )),

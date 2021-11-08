@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 class SportyAppSnackBar {
-  static void showSuccessSnackBar(BuildContext context,
+  static showSuccessSnackBar(BuildContext context,
       {required String message,
       int milliseconds = 10000,
       SnackBarBehavior snackBarBehavior = SnackBarBehavior.floating}) {
-    ScaffoldMessenger.of(context).showSnackBar(
+    return ScaffoldMessenger.of(context).showSnackBar(
       new SnackBar(
         backgroundColor: Colors.green,
+          margin: const EdgeInsets.only(bottom: 100.0),
         behavior: snackBarBehavior,
         action: SnackBarAction(
             textColor: Colors.white,

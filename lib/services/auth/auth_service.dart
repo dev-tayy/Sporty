@@ -23,12 +23,15 @@ class AuthenticationService {
   Future<AuthResultStatus> createAccount({
     required String email,
     required String password,
+    required String username,
   }) async {
     try {
       UserCredential newUser = await _auth.createUserWithEmailAndPassword(
         email: email,
         password: password,
       );
+
+      _auth.currentUser!.updateDisplayName(username);
 
       newUser.user!.sendEmailVerification();
 

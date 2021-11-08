@@ -1,19 +1,19 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'services/navigation_service.dart';
-import 'utils/injection.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/forgot_password_screen.dart';
 import 'helper/helper.dart';
+import 'package:provider/provider.dart';
+import 'package:sporty/providers/providers.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  // configureInjection(Env.production);
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
-  /// init database and any other setup before runapp
-  runApp(MyApp());
+  await Firebase.initializeApp();
+  runApp(MultiProvider(providers: providers, child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           BotToastNavigatorObserver(),
         ],
         builder: BotToastInit(),
-        title: 'Flutter Base',
+        title: 'Sporty',
         navigatorKey: NavigationService.navigationKey,
         theme: ThemeData(
           fontFamily: 'BasisGrotesquePro',
@@ -40,7 +40,7 @@ class MyApp extends StatelessWidget {
           // ProfileScreen.id: (context) => ProfileScreen(),
           // EditProfileScreen.id: (context) => EditProfileScreen(),
           // ChangePasswordScreen.id: (context) => ChangePasswordScreen(),
-         ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
+          ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),
           // ResetPasswordScreen.id: (context) => ResetPasswordScreen(),
           // ChangeEmailScreen.id: (context) => ChangeEmailScreen(),
         });

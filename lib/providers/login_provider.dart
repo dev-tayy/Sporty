@@ -6,7 +6,7 @@ import 'package:sporty/services/database/db_service_sp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 
-class LoginModel extends ChangeNotifier {
+class LoginProvider extends ChangeNotifier {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
