@@ -43,6 +43,15 @@ class AuthenticationService {
     return _status;
   }
 
+  Future<AuthResultStatus> resetPassword({required String email}) async {
+    await _auth
+        .sendPasswordResetEmail(email: email)
+        .then((value) => _status = AuthResultStatus.successful)
+        .catchError((e) => _status = AuthExceptionHandler.handleException(e));
+
+    return _status;
+  }
+
   Future<void> logout() async {
     await _auth.signOut();
   }

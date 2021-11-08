@@ -1,6 +1,8 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:sporty/screens/login_screen.dart';
+import 'package:sporty/services/navigation_service.dart';
 
 import 'dimension.dart';
 
@@ -279,7 +281,7 @@ Future<bool> onLogOutPop(context) {
 }
 
 Future<void> showSuccessDialog(
-    {required BuildContext context, String? message}) async {
+    {required BuildContext context, String? message, required action}) async {
   Future _close() async {
     Navigator.pop(context);
   }
@@ -325,6 +327,7 @@ Future<void> showSuccessDialog(
                         ),
                         onPressed: () async {
                           await _close();
+                          action!();
                         },
                         child: Text(
                           'OK',

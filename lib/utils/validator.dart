@@ -25,8 +25,6 @@ class Validator {
   }
 
   static String? validateName(String value) {
-    // Pattern pattern = r'^.{2,}$';
-    // RegExp regex = new RegExp(pattern);
     if (value.length < 3)
       return '🚩 Username is too short.';
     else
@@ -34,8 +32,6 @@ class Validator {
   }
 
   static String? validateText(String value) {
-    // Pattern pattern = r'^.{2,}$';
-    // RegExp regex = new RegExp(pattern);
     if (value.length < 1)
       return '🚩 Text is too short.';
     else
@@ -45,13 +41,6 @@ class Validator {
 
 
   static String? validatePhoneNumber(String value) {
-    // Pattern pattern = r'^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$';
-    // RegExp regex = new RegExp(pattern);
-
-    // if (!regex.hasMatch(value))
-    //   return 'Please enter a number.';
-    // else
-    //   return null;
     if (value.length != 11)
       return '🚩 Phone number is not valid.';
     else
