@@ -144,11 +144,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   ),
                                 ),
                               ),
-                              // Text(
-                              //     '  A verification code would be sent to your phone.',
-                              //     style: TextStyle(
-                              //         fontSize: 10,
-                              //         fontStyle: FontStyle.italic)),
+                              Text(
+                                  '  A verification code would be sent to your phone.',
+                                  style: TextStyle(
+                                      fontSize: 10,
+                                      fontStyle: FontStyle.italic)),
                               SizedBox(height: size.height * 0.02),
                               Text('Select your interests',
                                   style: TextStyle(
@@ -161,8 +161,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                   FormField<List<String>>(
                                     autovalidate: true,
                                     initialValue: model.interests,
-                                    onSaved: (val) =>
-                                        setState(() => model.interests = val),
+                                    onSaved: (val) => setState(
+                                        () => model.setInterests = val),
                                     validator: (value) {
                                       if (value?.isEmpty ?? value == null) {
                                         return 'Please select some interests';
@@ -211,8 +211,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                             ),
                                           ),
                                           state.hasError
-                                              ? Text(
-                                                  '${state.errorText}', style: TextStyle(color: Colors.red))
+                                              ? Text('${state.errorText}',
+                                                  style: TextStyle(
+                                                      color: Colors.red))
                                               : SizedBox()
                                         ],
                                       );
@@ -228,9 +229,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     child: ElevatedButton(
                                       onPressed: () async {
                                         if (_formKey.currentState!.validate()) {
+                                          _formKey.currentState!.save();
                                           model.registerUsers(context);
                                         }
-                                        // model.passwordController.text = "";
                                       },
                                       style: ElevatedButton.styleFrom(
                                           primary: Colors.indigo,

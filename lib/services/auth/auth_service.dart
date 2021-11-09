@@ -31,7 +31,8 @@ class AuthenticationService {
         password: password,
       );
 
-      _auth.currentUser!.updateDisplayName(username);
+      //_auth.currentUser!.updateDisplayName(username);
+      _auth.currentUser!.updateProfile(displayName: username);
 
       newUser.user!.sendEmailVerification();
 

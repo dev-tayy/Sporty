@@ -1,5 +1,9 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
+import 'package:sporty/screens/buddies_screen.dart';
+import 'package:sporty/screens/discover_screen.dart';
+import 'package:sporty/screens/profile_screen.dart';
+import 'package:sporty/screens/settiings_screen.dart';
 import 'services/navigation_service.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
@@ -37,7 +41,10 @@ class MyApp extends StatelessWidget {
           LoginScreen.id: (context) => LoginScreen(),
           HomeScreen.id: (context) => HomeScreen(),
           RegisterScreen.id: (context) => RegisterScreen(),
-          // ProfileScreen.id: (context) => ProfileScreen(),
+          ProfileScreen.id: (context) => ProfileScreen(),
+          SettingsScreen.id: (context) => SettingsScreen(),
+          BuddiesScreen.id: (context) => BuddiesScreen(),
+          DiscoverScreen.id: (context) => DiscoverScreen(),
           // EditProfileScreen.id: (context) => EditProfileScreen(),
           // ChangePasswordScreen.id: (context) => ChangePasswordScreen(),
           ForgotPasswordScreen.id: (context) => ForgotPasswordScreen(),

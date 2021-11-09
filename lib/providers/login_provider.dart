@@ -19,12 +19,13 @@ class LoginProvider extends ChangeNotifier {
       password: passwordController.text,
     );
 
-    Future.delayed(Duration(seconds: 1), () {
-      progress.dismiss();
-    });
+    progress.dismiss();
+    
 
     if (user == AuthResultStatus.successful) {
       DatabaseServiceSp.saveEmail(emailController.text);
+      //DatabaseServiceSp.saveUsername(usernameController.text);
+      
       Navigator.pushNamedAndRemoveUntil(
         context,
         HomeScreen.id,

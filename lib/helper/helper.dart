@@ -281,7 +281,7 @@ Future<bool> onLogOutPop(context) {
 }
 
 Future<void> showSuccessDialog(
-    {required BuildContext context, String? message, required action}) async {
+    {required BuildContext context, String? message, action}) async {
   Future _close() async {
     Navigator.pop(context);
   }
@@ -327,7 +327,7 @@ Future<void> showSuccessDialog(
                         ),
                         onPressed: () async {
                           await _close();
-                          action!();
+                      //    action();
                         },
                         child: Text(
                           'OK',
