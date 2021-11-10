@@ -6,6 +6,11 @@ class DiscoverScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var size = MediaQuery.of(context).size;
+    return Container(
+      color: const Color(0xFF121212),
+      width: size.width,
+      height: size.height,
+    );
   }
 }

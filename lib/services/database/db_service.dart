@@ -10,11 +10,11 @@ class DatabaseService {
     return _instance;
   }
 
-  FirebaseFirestore firestore = FirebaseFirestore.instance;
+  FirebaseFirestore _firestore = FirebaseFirestore.instance;
   FirebaseAuth _auth = FirebaseAuth.instance;
 
   Future<void> uploadUserCredentials(UserModel userMap) async {
-    await firestore
+    await _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)
         .set(
@@ -24,7 +24,7 @@ class DatabaseService {
   }
 
   Future<void> updateUserCredentials(UserModel userMap) async {
-    await firestore
+    await _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)
         .update(userMap.toJson())
@@ -32,19 +32,22 @@ class DatabaseService {
   }
 
   Future<void> deleteUserCredentials() async {
-    await firestore
+    await _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)
         .delete()
         .catchError((onError) => print('DS - Failed to delete user: $onError'));
   }
 
-  // Future<UserModel> getUserCredentials() async {
-  //   DocumentSnapshot? snapshot = await firestore
-  //       .collection("users")
-  //       .doc(_auth.currentUser!.uid)
-  //       .get();
+  Future<UserModel> getUserCredentials() async {
+    DocumentSnapshot snapshot = await _firestore
+        .collection("users")
+        .doc(_auth.currentUser!.uid)
+        .get()
+        .catchError((onError) {
+      print('DS - Failed to delete user: $onError');
+    });
 
-  //   // return UserModel.fromJson(snapshot.data()?.cast);
-  // }
+    return UserModel.fromJson(snapshot.data());
+  }
 }

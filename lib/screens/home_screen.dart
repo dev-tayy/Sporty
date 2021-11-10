@@ -5,7 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:sporty/screens/buddies_screen.dart';
 import 'package:sporty/screens/discover_screen.dart';
 import 'package:sporty/screens/profile_screen.dart';
-import 'package:sporty/screens/settiings_screen.dart';
+import 'package:sporty/screens/settings_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   static String id = "home_screen";

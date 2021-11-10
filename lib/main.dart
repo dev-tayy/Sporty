@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:sporty/screens/buddies_screen.dart';
 import 'package:sporty/screens/discover_screen.dart';
 import 'package:sporty/screens/profile_screen.dart';
-import 'package:sporty/screens/settiings_screen.dart';
+import 'package:sporty/screens/settings_screen.dart';
 import 'services/navigation_service.dart';
 import 'screens/login_screen.dart';
 import 'screens/register_screen.dart';
