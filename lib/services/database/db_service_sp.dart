@@ -31,7 +31,7 @@ class DatabaseServiceSp {
     return shared.getString(emailKey);
   }
 
-  Future<void> dispose() async {
+  static Future<void> dispose() async {
     SharedPreferences shared = await SharedPreferences.getInstance();
     shared.remove(usernameKey);
     shared.remove(emailKey);

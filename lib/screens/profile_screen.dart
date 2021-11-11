@@ -1,9 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sporty/helper/helper.dart';
-import 'package:shimmer/shimmer.dart';
 import 'package:sporty/models/user_model.dart';
 import 'package:sporty/providers/profile_provider.dart';
 
@@ -51,27 +50,58 @@ class ProfileScreen extends StatelessWidget {
                         children: [
                           Align(
                             alignment: Alignment.topCenter,
-                            child: Container(
-                              padding: const EdgeInsets.all(5),
-                              clipBehavior: Clip.hardEdge,
-                              decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.transparent,
-                                  border: Border.all(
-                                      width: 1, color: Colors.orange)),
-                              child: Container(
-                                height: 100,
-                                width: 100,
-                                clipBehavior: Clip.hardEdge,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
+                            child: Stack(
+                              children: [
+                                Container(
+                                  padding: const EdgeInsets.all(5),
+                                  clipBehavior: Clip.hardEdge,
+                                  decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                      color: Colors.transparent,
+                                      border: Border.all(
+                                          width: 1, color: Colors.orange)),
+                                  child: Container(
+                                    height: 100,
+                                    width: 100,
+                                    clipBehavior: Clip.hardEdge,
+                                    decoration: BoxDecoration(
+                                      shape: BoxShape.circle,
+                                    ),
+                                    child: model.images.isNotEmpty
+                                        ? Image(
+                                            image: FileImage(model.images.last),
+                                            fit: BoxFit.cover,
+                                          )
+                                        : Image(
+                                            image: AssetImage(
+                                                'assets/images/welcome_screen.jpg'),
+                                            fit: BoxFit.cover),
+                                  ),
                                 ),
-                                child: Image(
-                                    image: NetworkImage(
-                                        'https://cdn.pixabay.com/photo/2019/03/30/10/05/man-4090877_960_720.png')),
-                              ),
+                                Positioned(
+                                  top: 90,
+                                  left: 80,
+                                  child: GestureDetector(
+                                    onTap: () {
+                                      model.getImage(context).then((value) {
+                                        return model.updateProfilePicture(
+                                            context, value.last);
+                                      });
+                                    },
+                                    child: Container(
+                                      padding: const EdgeInsets.all(4),
+                                      decoration: BoxDecoration(
+                                          color: Colors.orange,
+                                          shape: BoxShape.circle),
+                                      child: Icon(Icons.add_a_photo,
+                                          color: Colors.white, size: 15),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
                           ),
+                          YMargin(10),
                           Align(
                             alignment: Alignment.topCenter,
                             child: Text(
@@ -147,6 +177,7 @@ class ProfileScreen extends StatelessWidget {
                                 YMargin(3),
                                 Wrap(
                                   spacing: 8,
+                                  runSpacing: 5,
                                   children: [
                                     for (var interest
                                         in snapshot.data!.interests ??
@@ -157,27 +188,6 @@ class ProfileScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-                          YMargin(30),
-                          Align(
-                            alignment: Alignment.center,
-                            child: ElevatedButton(
-                              onPressed: () {},
-                              style: ElevatedButton.styleFrom(
-                                padding: const EdgeInsets.all(3),
-                                alignment: Alignment.center,
-                                elevation: 5,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(5),
-                                ),
-                                primary: Colors.orange,
-                              ),
-                              child: Text('Sign out',
-                                  style: TextStyle(
-                                    fontSize: 15,
-                                    color: Colors.white,
-                                  )),
-                            ),
-                          )
                         ],
                       ),
                     ),

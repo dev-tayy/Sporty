@@ -2,7 +2,6 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
-import 'package:sporty/services/navigation_service.dart';
 import 'package:sporty/helper/helper.dart';
 import 'package:sporty/utils/validator.dart';
 import 'package:provider/provider.dart';

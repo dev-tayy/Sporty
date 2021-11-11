@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -21,10 +23,11 @@ class RegisterProvider extends ChangeNotifier {
   TextEditingController passwordController = TextEditingController();
   TextEditingController phoneNumberController = TextEditingController();
   DatabaseService _databaseService = DatabaseService();
+  File? avatar;
   List<String>? _interests;
   List<String>? get interests => _interests;
-  set setInterests(List<String>? interests){
-      _interests = interests;
+  set setInterests(List<String>? interests) {
+    _interests = interests;
   }
 
   Future<void> registerUsers(BuildContext context) async {
@@ -49,13 +52,13 @@ class RegisterProvider extends ChangeNotifier {
       if (checkUsername == false) {
         if (newUser == AuthResultStatus.successful) {
           UserModel userCredentials = UserModel(
-            email: emailController.text.trim(),
-            username: usernameController.text.trim(),
-            phoneNumber: phoneNumberController.text,
-            interests: _interests,
-            createdAt: DateTime.now().toString(),
-            id: _auth.currentUser!.uid
-          );
+              email: emailController.text.trim(),
+              username: usernameController.text.trim(),
+              phoneNumber: phoneNumberController.text,
+              interests: _interests,
+              createdAt: DateTime.now().toString(),
+              id: _auth.currentUser!.uid,
+              avatar: avatar);
           print(_interests!.length);
           _databaseService.uploadUserCredentials(userCredentials).catchError(
               (e) => SportyAppSnackBar.showErrorSnackBar(context,

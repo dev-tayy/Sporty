@@ -17,6 +17,7 @@ class RegisterScreen extends StatefulWidget {
 
 class _RegisterScreenState extends State<RegisterScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  bool _showPassword = false;
 
   List<String>? options = [
     "Football",
@@ -116,13 +117,27 @@ class _RegisterScreenState extends State<RegisterScreen> {
                               ),
                               SizedBox(height: size.height * 0.03),
                               TextFormField(
-                                obscureText: true,
+                                obscureText: _showPassword,
                                 validator: (value) =>
                                     Validator.validatePassword(value ?? ""),
                                 controller: model.passwordController,
                                 keyboardType: TextInputType.visiblePassword,
+
                                 decoration: InputDecoration(
                                   hintText: "Password",
+                                  suffixIcon: GestureDetector(
+                              onTap: () {
+                                setState(() {
+                                  _showPassword = !_showPassword;
+                                });
+                              },
+                              child: Icon(
+                                _showPassword
+                                    ? Icons.visibility
+                                    : Icons.visibility_off,
+                                color: Colors.grey,
+                              ),
+                            ),
                                   isDense: true,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),

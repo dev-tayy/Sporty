@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:sporty/helper/helper.dart';
 import 'package:sporty/providers/app_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:sporty/screens/buddies_screen.dart';

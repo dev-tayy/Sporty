@@ -43,7 +43,7 @@ class AuthExceptionHandler {
     return status;
   }
 
-  static String generateExceptionMessage(AuthResultStatus exceptionCode) {
+  static String generateExceptionMessage(exceptionCode) {
     String errorMessage;
     switch (exceptionCode) {
       case AuthResultStatus.invalidEmail:

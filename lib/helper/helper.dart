@@ -1,9 +1,6 @@
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:sporty/screens/login_screen.dart';
-import 'package:sporty/services/navigation_service.dart';
-
 import 'dimension.dart';
 
 class XMargin extends StatelessWidget {

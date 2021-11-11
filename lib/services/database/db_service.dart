@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sporty/models/user_model.dart';
@@ -23,11 +25,20 @@ class DatabaseService {
         .catchError((onError) => print('DS - Failed to add user: $onError'));
   }
 
-  Future<void> updateUserCredentials(UserModel userMap) async {
+  Future<void> updateUserCredentials(
+      {required String fieldName, required dynamic fieldValue}) async {
     await _firestore
         .collection("users")
         .doc(_auth.currentUser!.uid)
-        .update(userMap.toJson())
+        .update({'$fieldName': '$fieldValue'}).catchError(
+            (onError) => print('DS - Failed to update user: $onError'));
+  }
+
+  Future<void> updateUserProfilePicture(File avatar) async {
+    await _firestore
+        .collection("users")
+        .doc(_auth.currentUser!.uid)
+        .update(UserModel(avatar: avatar).toJson())
         .catchError((onError) => print('DS - Failed to update user: $onError'));
   }
 

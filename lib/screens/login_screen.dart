@@ -1,6 +1,5 @@
-//@=dart2.7
+
 import 'dart:ui';
-import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:sporty/providers/login_provider.dart';
@@ -19,15 +18,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  List<String>? formValue = [];
-  List<String>? options = [
-    "Football",
-    "BasketBall",
-    "Ice Hockey",
-    "MotorSpot",
-    "Skiing",
-    "Rugby",
-  ];
+  bool _showPassword = false;
 
   @override
   Widget build(BuildContext context) {
@@ -111,13 +102,26 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                     SizedBox(height: size.height * 0.03),
                                     TextFormField(
-                                      obscureText: true,
+                                      obscureText: _showPassword,
                                       controller: model.passwordController,
                                       validator: (value) {
                                         return Validator.validatePassword(
                                             value ?? "");
                                       },
                                       decoration: InputDecoration(
+                                        suffixIcon: GestureDetector(
+                                          onTap: () {
+                                            setState(() {
+                                              _showPassword = !_showPassword;
+                                            });
+                                          },
+                                          child: Icon(
+                                            _showPassword
+                                                ? Icons.visibility
+                                                : Icons.visibility_off,
+                                            color: Colors.grey,
+                                          ),
+                                        ),
                                         hintText: "Password",
                                         isDense: true,
                                         border: OutlineInputBorder(

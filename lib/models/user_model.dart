@@ -1,3 +1,4 @@
+import 'dart:io';
 class UserModel {
   UserModel({
     this.id,
@@ -17,7 +18,7 @@ class UserModel {
   List<String>? interests;
   String? createdAt;
   String? updatedAt;
-  String? avatar;
+  File? avatar;
 
   factory UserModel.fromJson(Map<String, dynamic> json) => UserModel(
         id: json["id"] == null ? null : json["id"],
