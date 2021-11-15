@@ -1,6 +1,6 @@
 import 'package:sporty/helper/snackbar.dart';
-import 'package:sporty/models/user_model.dart';
-import 'package:sporty/services/database/db_service.dart';
+import 'package:sporty/core/models/user_model.dart';
+import 'package:sporty/core/services/database/db_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';

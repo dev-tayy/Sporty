@@ -2,10 +2,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:sporty/helper/snackbar.dart';
 import 'package:sporty/main.dart';
-import 'package:sporty/services/auth/auth_service.dart';
-import 'package:sporty/services/auth/exception_handler.dart';
-import 'package:sporty/services/database/db_service.dart';
-import 'package:sporty/services/database/db_service_sp.dart';
+import 'package:sporty/core/services/auth/auth_service.dart';
+import 'package:sporty/core/services/auth/exception_handler.dart';
+import 'package:sporty/core/services/database/db_service.dart';
+import 'package:sporty/core/services/database/db_service_sp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 

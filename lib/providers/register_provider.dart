@@ -6,12 +6,12 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:sporty/helper/snackbar.dart';
 import 'package:sporty/screens/login_screen.dart';
-import 'package:sporty/services/auth/auth_service.dart';
-import 'package:sporty/services/auth/exception_handler.dart';
-import 'package:sporty/services/database/db_service.dart';
-import 'package:sporty/models/user_model.dart';
+import 'package:sporty/core/services/auth/auth_service.dart';
+import 'package:sporty/core/services/auth/exception_handler.dart';
+import 'package:sporty/core/services/database/db_service.dart';
+import 'package:sporty/core/models/user_model.dart';
 import 'package:sporty/helper/helper.dart';
-import 'package:sporty/services/navigation_service.dart';
+import 'package:sporty/core/services/navigation_service.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;

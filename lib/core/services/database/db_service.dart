@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:sporty/models/user_model.dart';
+import 'package:sporty/core/models/user_model.dart';
 
 class DatabaseService {
   static final DatabaseService _instance = DatabaseService._internal();

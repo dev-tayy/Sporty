@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:sporty/helper/helper.dart';
-import 'package:sporty/models/user_model.dart';
+import 'package:sporty/core/models/user_model.dart';
 import 'package:sporty/providers/profile_provider.dart';
 
 class ProfileScreen extends StatelessWidget {

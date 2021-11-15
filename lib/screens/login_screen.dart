@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_progress_hud/flutter_progress_hud.dart';
 import 'package:sporty/providers/login_provider.dart';
 import 'package:provider/provider.dart';
-import 'package:sporty/services/navigation_service.dart';
+import 'package:sporty/core/services/navigation_service.dart';
 import 'package:sporty/screens/forgot_password_screen.dart';
 import 'package:sporty/utils/validator.dart';
 
