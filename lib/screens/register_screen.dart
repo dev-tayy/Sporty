@@ -1,5 +1,6 @@
 //@=dart2.7
 import 'dart:ui';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -122,22 +123,21 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     Validator.validatePassword(value ?? ""),
                                 controller: model.passwordController,
                                 keyboardType: TextInputType.visiblePassword,
-
                                 decoration: InputDecoration(
                                   hintText: "Password",
                                   suffixIcon: GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  _showPassword = !_showPassword;
-                                });
-                              },
-                              child: Icon(
-                                _showPassword
-                                    ? Icons.visibility
-                                    : Icons.visibility_off,
-                                color: Colors.grey,
-                              ),
-                            ),
+                                    onTap: () {
+                                      setState(() {
+                                        _showPassword = !_showPassword;
+                                      });
+                                    },
+                                    child: Icon(
+                                      _showPassword
+                                          ? Icons.visibility
+                                          : Icons.visibility_off,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
                                   isDense: true,
                                   border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(10),
@@ -174,7 +174,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   FormField<List<String>>(
-                                    autovalidate: true,
+                                    autovalidateMode: AutovalidateMode.always,
                                     initialValue: model.interests,
                                     onSaved: (val) => setState(
                                         () => model.setInterests = val),

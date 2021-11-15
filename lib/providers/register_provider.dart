@@ -1,5 +1,6 @@
 import 'dart:io';
 
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
@@ -12,6 +13,7 @@ import 'package:sporty/core/services/database/db_service.dart';
 import 'package:sporty/core/models/user_model.dart';
 import 'package:sporty/helper/helper.dart';
 import 'package:sporty/core/services/navigation_service.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:firebase_auth/firebase_auth.dart';
 
 FirebaseFirestore firestore = FirebaseFirestore.instance;

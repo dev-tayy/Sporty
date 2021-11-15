@@ -3,6 +3,7 @@ import 'package:sporty/core/models/user_model.dart';
 import 'package:sporty/core/services/database/db_service.dart';
 import 'package:flutter/material.dart';
 import 'dart:io';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart' as sysPath;
 
@@ -29,6 +30,7 @@ class ProfileProvider extends ChangeNotifier {
   Future<List<File?>> getImage(BuildContext context) async {
     try {
       images.clear();
+      // ignore: deprecated_member_use
       File imageFile = await ImagePicker.pickImage(
           source: ImageSource.gallery,
           imageQuality: 20,
